@@ -1,0 +1,27 @@
+{
+  "name": "@catsys/dish-detail",
+  "version": "1.0.0",
+  "description": "Catsys component generated",
+  "main": "dish-detail.js",
+  "keywords": [
+    "lit-element",
+    "component"
+  ],
+  "author": "autogenered <hello@catsys.com>",
+  "license": "MIT",
+  "scripts": {
+    "karma": "karma",
+    "test": "karma start"
+  },
+  "dependencies": {
+    "@catsys/rating-component": "github:tlenexkoyotl/rating-component",
+    "@polymer/paper-button": "^3.0.1",
+    "@polymer/paper-card": "^3.0.1",
+    "@polymer/paper-toast": "^3.0.1",
+    "lit-element": "^2.0.0"
+  },
+  "devDependencies": {
+    "@open-wc/testing": "^0.9.11",
+    "@open-wc/testing-karma": "^0.4.7"
+  }
+}

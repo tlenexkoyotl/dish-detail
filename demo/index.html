@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="module">
+      import '@polymer/paper-toast';
+      import '../dish-detail.js';
+  </script>
+  <title>DishDetail</title>
+</head>
+<body>
+<style>
+  .card {
+    padding: 10px;
+    color: #757575;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  }
+</style>
+<div class="card">
+  <dish-detail energyUnit="cal"
+               ratingScale="5"
+               isPreview="true"></dish-detail>
+  <paper-toast></paper-toast>
+</div>
+<script>
+    let index = 0;
+    const dishes = [
+        {
+            id: 3,
+            name: 'Sakawili',
+            energyValue: 859,
+            rating: 3,
+            description: 'Tamal gigante que se prepara en comunidades de la Huasteca, : masa quebrada, manteca vegetal, chile chino, cascabel y carne de guajolote.',
+            price: 89.927557,
+            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTSW8ceCZ1Hh9uyR7idNpNvc_1Cfy5fVkaoc91mN88ZmyeQ1-PA',
+            currency: '$MXN',
+        },
+        {
+            id: 5,
+            name: 'Tamal de dulce',
+            energyValue: 18059,
+            rating: 4,
+            description: 'Rosadito uwu',
+            price: 889.927557,
+            picture: 'https://d1uz88p17r663j.cloudfront.net/original/745971569b88e76524a6da7c83e99fed_Tamal_de_Dulce.jpg',
+            currency: 'YEN',
+        },
+        {
+            id: 7,
+            name: 'Tamal de mole',
+            energyValue: 918059,
+            rating: 2,
+            description: 'Mololongo',
+            price: 9869.927557,
+            picture: 'https://cdn.kiwilimon.com/recetaimagen/32468/th5-640x426-37382.jpg',
+            currency: 'RUB',
+        },
+        {
+            id: 11,
+            name: 'Tamal de frijol huhu',
+            energyValue: 534.9,
+            rating: 5,
+            description: 'Frijoliano con habanero huhu',
+            price: 7.557,
+            picture: 'https://cdn2.cocinadelirante.com/sites/default/files/styles/gallerie/public/images/2017/06/tamalesdefrijol.jpg',
+            currency: 'RUB',
+        },
+        {
+            id: 13,
+            name: 'מצות',
+            energyValue: 3.49,
+            rating: 5,
+            description: 'מַצָּה היא מאפה העשוי מבצק של אחד או יותר מחמשת מיני דגן שלא החמיץ. המצה מכונה בתורה גם "לחם עוני".',
+            price: 79.557,
+            picture: 'https://assets-global.website-files.com/5b8fd783bee52c8fb59b1fac/5c05232ea3c2de30e9a3968e_144834.jpeg',
+            currency: 'ISR',
+        },
+        {
+            id: 15,
+            name: 'كباب',
+            energyValue: 3.49,
+            rating: 5,
+            description: 'لسفرة شهية في العيد إليكي طريقة عمل الشيش كباب بلحم الضآن',
+            price: 97.7656,
+            picture: 'https://www.ma7shy.com/media/cache/image_recipe_large/uploads/media/%D8%AC%D8%B1%D9%8A%D8%B4_1411847181.jpg',
+            currency: 'DNR',
+        }
+    ];
+
+    const detail = document.querySelector('dish-detail');
+    const toast = document.querySelector('paper-toast');
+    detail.dish = dishes[index++];
+
+    setInterval(() => {
+        detail.dish = dishes[index++];
+
+        if (index >= dishes.length) index = 0;
+    }, 3000);
+
+    detail.addEventListener('update-dish', (event) => {
+        toast.text = `Update dish ${event.detail.dish.id}`;
+
+        toast.open();
+    });
+
+    detail.addEventListener('delete-dish', (event) => {
+        toast.text = `Delete dish ${event.detail.dish.id}`;
+
+        toast.open();
+    });
+</script>
+</body>
+</html>

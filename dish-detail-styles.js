@@ -1,0 +1,62 @@
+import { css } from 'lit-element';
+
+export default css`
+:host {
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+:host([hidden]), [hidden] {
+  display: none !important;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+  font-family: inherit;
+}
+
+.actions {
+  text-align: center;
+}
+
+.container {
+  margin: 10px;
+}
+
+.header {
+  @apply --paper-font-headline;
+}
+
+.light {
+  color: var(--paper-grey-600, #757575);
+}
+
+.location {
+  float: right;
+  font-size: 15px;
+  vertical-align: middle;
+}
+
+paper-button {
+  color: white;
+}
+
+paper-button.info {
+  background-color: #0000ff;
+}
+
+paper-button.error {
+  background-color: #ff0000;
+}
+
+paper-card {
+  overflow: hidden;
+  display: inline-table;
+  width: 500px;
+
+  --paper-card-header-image: {
+    display: block;
+    height: 400px;
+  };
+}
+`;
